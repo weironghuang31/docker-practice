@@ -1,7 +1,7 @@
 version: '2'
 services:
   web:
-    image: wadehuang36/loadbalance-sample
+    image: wadehuang36/loadbalance-example
     build: .
     ports:
       - 3000
