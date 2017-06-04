@@ -48,7 +48,7 @@ You can run `ssh swarm-leader docker node ls` to see how many node in the swarm 
 |ID|HOSTNAME|STATUS|AVAILABILITY|MANAGER STATUS|
 |--|--------|------|------------|--------------|
 |vezme0sdqzh56gpfmshqnqsib *|swarm-leader|Ready|Active|Leader|
-|pa2us0nqfeq7t038zu0sdou42 *|swarm-worker1|Ready|Active||
+|pa2us0nqfeq7t038zu0sdou42|swarm-worker1|Ready|Active||
 |1jichv8qxq3xhodd4zdvu1wf7|swarm-worker2|Ready|Active||
 |xylw4du03apy3dkl1nfbyw2nc|swarm-worker3|Ready|Active||
 
