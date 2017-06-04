@@ -1,0 +1,8 @@
+version: '3'
+services:
+  www:
+    image: example_www:latest
+    build: 
+      context: ./example_www
+      dockerfile: dockerfile-increment
+  ## skip other services

@@ -1,0 +1,33 @@
+FROM node:7
+
+EXPOSE 3000
+
+WORKDIR /app
+CMD ["npm", "start"]
+
+# install RVM, Ruby, and composs
+RUN \curl -L https://get.rvm.io | bash -s stable
+RUN /bin/bash -l -c "rvm requirements"
+RUN /bin/bash -l -c "rvm install 2.0"
+RUN /bin/bash -l -c "gem install compass"
+
+# install dependencies of two sub-modules
+COPY ./module1/package.json /app/module1/package.json
+RUN cd /module1 && npm install
+
+COPY ./module2/package.json /app/module2/package.json
+RUN cd /app/module2 && npm install
+
+# install dependencies of main project
+COPY ./package.json /app/package.json
+COPY ./bower.json /app/bower.json
+RUN cd /app && npm install && bower install
+
+# pre-compile js, less and sass files
+COPY ./app/public /app/public
+COPY ./app/assert /app/assert
+COPY ./Gruntfile.js /app/Gruntfile.js
+RUN gulp build
+
+# copy source code
+COPY ./ /app/
