@@ -9,7 +9,7 @@ I was curious that how [DockerCloud/HAProxy](https://hub.docker.com/r/dockerclou
 Docker Engine API has many [SDKs](https://docs.docker.com/engine/api/sdks/). In this example, I used [Docker.DotNet](https://github.com/Microsoft/Docker.DotNet) in .Net Core, but you probably can find the SDK for your need.
 
 # docker-compose
-```
+```yaml
 version: '3'
 services:
   web:
