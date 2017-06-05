@@ -1,0 +1,6 @@
+FROM microsoft/dotnet:1.1.2-runtime
+
+WORKDIR /app
+COPY out /app
+
+ENTRYPOINT ["dotnet", "Docker-Engine-API.dll"]

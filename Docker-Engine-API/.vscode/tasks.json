@@ -1,0 +1,51 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "0.1.0",
+    "showOutput": "always",
+    "tasks": [
+        {
+            "taskName": "build",
+            "isShellCommand": true,
+            "echoCommand": true,
+            "isBuildCommand": true,            
+            "command": "dotnet",
+            "args": [
+                "build"
+            ]
+        },
+        {
+            "taskName": "publish",
+            "isShellCommand": true,
+            "echoCommand": true,
+            "command": "dotnet",
+            "args": [
+                "publish",
+                "-c",
+                "Release",
+                "-o",
+                "out"
+            ]
+        },
+        {
+            "taskName": "docker:up",
+            "isShellCommand": true,
+            "echoCommand": true,
+            "command": "docker-compose",
+            "args": [
+                "up",
+                "-d"
+            ]
+        },
+        {
+            "taskName": "buildAndRunOnDocker",
+            "isShellCommand": true,
+            "echoCommand": true,
+            "command": "cmd",
+            "args": [
+                "/c",
+                "dotnet build && dotnet publish -c Release -o out && docker-compose up --build app"
+            ]
+        }
+    ]
+}
